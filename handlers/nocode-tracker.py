@@ -15,5 +15,15 @@ _logger = logging.getLogger(__name__)
 def handler(event, context):
     '''Lambda entry point.'''
     _logger.info('Event received: {}'.format(json.dumps(event)))
+    request_id = event.get('RequestId')
+    stack_id = event.get('StackId')
 
-    return {"NoCode": "OK"}
+    resp = {
+        "Status": "SUCCESS",
+        "PhysicalResourceId": "NoCode",
+        "LogicalResourceId": "NoCode",
+        "StackId": stack_id,
+        "RequestId": request_id
+    }
+
+    return resp
