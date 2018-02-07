@@ -1,0 +1,11 @@
+{
+  "name": "serverless-aws-console-auditor",
+  "description": "",
+  "version": "0.1.0",
+  "dependencies": {},
+  "devDependencies": {
+    "serverless-iam-roles-per-function": "^0.1.2",
+    "serverless-pseudo-parameters": "^1.2.5",
+    "serverless-python-requirements": "^3.3.0"
+  }
+}

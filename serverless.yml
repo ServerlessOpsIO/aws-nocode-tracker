@@ -1,0 +1,23 @@
+# Track NoCode deployments
+
+service: aws-nocode-tracker
+
+provider:
+  name: aws
+  stage: "${opt:stage, env:SLS_STAGE, 'dev'}"
+  profile: "${opt:aws-profile, env:AWS_PROFILE, env:AWS_DEFAULT_PROFILE, 'default'}"
+  region: us-east-1
+
+  # you can define service wide environment variables here
+  environment:
+    # This is referenced in handlers
+    LOG_LEVEL: INFO
+
+# You can add functions here
+functions:
+  NoCodeTracker:
+    handler: handlers/nocode-tracker.handler
+    description: "Track NoCode deployments"
+    runtime: python3.6
+    memorySize: 128
+    timeout: 5
